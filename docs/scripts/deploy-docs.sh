@@ -71,8 +71,8 @@ if [[ -n "${CI:-}" ]]; then
 fi
 
 
-mike deploy "${MIKE_OPTIONS[@]}" "${ALIAS_OPTIONS[@]}"
+echo mike deploy "${MIKE_OPTIONS[@]}" "${ALIAS_OPTIONS[@]}"
 
 if [ ${#ALIAS_OPTIONS_LATEST[@]} -gt 0 ]; then
-    mike deploy "${MIKE_OPTIONS[@]}" "${ALIAS_OPTIONS_LATEST[@]}"
+    echo mike deploy "${MIKE_OPTIONS[@]}" "${ALIAS_OPTIONS_LATEST[@]}"
 fi
