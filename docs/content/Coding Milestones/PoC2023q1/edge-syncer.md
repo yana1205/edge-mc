@@ -1,8 +1,67 @@
+[![Run Doc Shells - placement-translator]({{config.repo_url}}/actions/workflows/run-doc-shells-placement.yml/badge.svg?branch={{config.ks_branch}})]({{config.repo_url}}/actions/workflows/run-doc-shells-placement.yml)&nbsp;&nbsp;&nbsp;
+{%
+   include-markdown "../../common-subs/required-packages.md"
+   start="<!--required-packages-start-->"
+   end="<!--required-packages-end-->"
+%}
+{%
+   include-markdown "../../common-subs/save-some-time.md"
+   start="<!--save-some-time-start-->"
+   end="<!--save-some-time-end-->"
+%}
+
+KubeStellar Syncer runs in the target cluster and sync kubernetes resource objects from the target cluster to a mailbox workspace and vice versa.
+
 ![edge-syncer drawio](images/edge-syncer-overview.png)
 
-#### Registering KubeStellar Syncer on an Edge cluster
 
-Edge-syncer can be deployed on Edge cluster easily by the following steps.
+## Steps to try the syncer
+The KubeStellar Syncer can be exercised after setting up KubeStellar mailbox workspaces. Firstly we'll follow to similar steps in [example1](../example1) until `The mailbox controller` in stage 2. 
+
+{%
+   include-markdown "example1-subs/example1-pre-kcp.md"
+   start="<!--example1-pre-kcp-start-->"
+   end="<!--example1-pre-kcp-end-->"
+%}
+
+{%
+   include-markdown "example1-subs/example1-start-kcp.md"
+   start="<!--example1-start-kcp-start-->"
+   end="<!--example1-start-kcp-end-->"
+%}
+
+{%
+   include-markdown "example1-subs/example1-post-kcp.md"
+   start="<!--example1-post-kcp-start-->"
+   end="<!--example1-post-kcp-end-->"
+%}
+
+{%
+   include-markdown "example1-subs/example1-stage-1a.md"
+   start="<!--example1-stage-1a-start-->"
+   end="<!--example1-stage-1a-end-->"
+%}
+
+### Register KubeStellar Syncer on the target clusters
+
+Once KubeStellar setup is done, KubeStellar Syncer can be deployed on the target cluster easily by the following steps.
+#### For the target cluster of `guilder`,
+{%
+   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-0-deploy-guilder.md"
+   start="<!--kubestellar-syncer-0-deploy-guilder-start-->"
+   end="<!--kubestellar-syncer-0-deploy-guilder-end-->"
+%}
+
+#### For the target cluster of `florin`,
+{%
+   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-0-deploy-florin.md"
+   start="<!--kubestellar-syncer-0-deploy-florin-start-->"
+   end="<!--kubestellar-syncer-0-deploy-florin-end-->"
+%}
+
+## The details about the registration of KubeStellar Syncer on an Edge cluster and a workspace
+
+Edge-syncer is deployed on Edge cluster easily by the following steps.
 
 1. Create SyncTarget and Location
     - Mailbox controller creates mailbox workspace automatically. 
@@ -25,7 +84,7 @@ The overall diagram is as follows:
 
 ![edge-syncer boot](images/edge-syncer-boot.png)
 
-#### What kubestellar syncer-gen plugin does
+### What kubestellar syncer-gen plugin does
 
 In order for Syncer to sync resources between upstream (workspace) and downstream (physical cluster), both access information are required. For the upstream access, the registration command of Syncer (`kubectl kubestellar syncer-gen`) creates a service account, clusterrole, and clusterrolebinding in the workspace, and then generates kubeconfig manifest from the service account token, KCP server URL, and the server certificates. The kubeconfig manifest is embedded in a secret manifest and the secret is mount to `/kcp/` in Syncer pod. The command generates such deployment manifest as Syncer reads `/kcp/` for the upstream Kubeconfig. On the other hand, for the downstream part, in addition to the deployment manifest, the command generates a service account, role/clusterrole, rolebinding/clusterrolebinding for Syncer to access resources on the physical cluster. These resources for the downstream part are the resources to be deployed to downstream cluster. The serviceaccount is set to `serviceAccountName` in the deployment manifest.
 
