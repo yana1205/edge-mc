@@ -908,15 +908,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#teardown-the-environment" class="md-nav__link">
     Teardown the environment
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -940,8 +940,7 @@
     What kubestellar syncer-gen plugin does
   </a>
   
-    <nav class="md-nav" aria-label="What kubestellar syncer-gen plugin does">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#deploy-workload-objects-from-edge-mc-to-edge-cluster" class="md-nav__link">
@@ -1003,8 +1002,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#build-kubestellar-syncer-image" class="md-nav__link">
     Build KubeStellar Syncer image
   </a>
@@ -1023,11 +1022,6 @@
   <a href="#how-to-build-the-image-with-multiple-architectures-and-push-it-to-docker-registry" class="md-nav__link">
     How to build the image with multiple architectures and push it to Docker registry
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1737,15 +1731,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#teardown-the-environment" class="md-nav__link">
     Teardown the environment
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1769,8 +1763,7 @@
     What kubestellar syncer-gen plugin does
   </a>
   
-    <nav class="md-nav" aria-label="What kubestellar syncer-gen plugin does">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#deploy-workload-objects-from-edge-mc-to-edge-cluster" class="md-nav__link">
@@ -1832,8 +1825,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#build-kubestellar-syncer-image" class="md-nav__link">
     Build KubeStellar Syncer image
   </a>
@@ -1852,11 +1845,6 @@
   <a href="#how-to-build-the-image-with-multiple-architectures-and-push-it-to-docker-registry" class="md-nav__link">
     How to build the image with multiple architectures and push it to Docker registry
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1898,7 +1886,7 @@
 
   <h1>KubeStellar-Syncer</h1>
 
-<p><a href="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-placement.yml"><img alt="Run Doc Shells - placement-translator" src="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-placement.yml/badge.svg?branch=main" /></a>&nbsp;&nbsp;&nbsp;</p>
+<p><a href="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-syncer.yml"><img alt="Run Doc Shells - edge-syncer" src="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-syncer.yml/badge.svg?branch=main" /></a>&nbsp;&nbsp;&nbsp;</p>
 <!-- BEGIN INCLUDE ../../common-subs/required-packages.md '&lt;!--required-packages-start--&gt;' '&lt;!--required-packages-end--&gt;' -->
 
 <div class="admonition tip">
@@ -2219,7 +2207,7 @@ SyncTarget name, you could do it as follows.</p>
 <h4 id="for-the-target-cluster-of-guilder">For the target cluster of <code>guilder</code>,</h4>
 <!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-0-deploy-guilder.md '&lt;!--kubestellar-syncer-0-deploy-guilder-start--&gt;' '&lt;!--kubestellar-syncer-0-deploy-guilder-end--&gt;' -->
 
-<p>go to inventry management workspace and find the mailbox workspace name
+<p>Go to inventry management workspace and find the mailbox workspace name.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:imw-1
 <a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nv">mbws</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>SyncTarget<span class="w"> </span>guilder<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.metadata.annotations[&#39;kcp\.io/cluster&#39;]}-mb-{.metadata.uid}&quot;</span><span class="sb">`</span>
 <a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mailbox workspace name = </span><span class="nv">$mbws</span><span class="s2">&quot;</span>
@@ -2227,7 +2215,7 @@ SyncTarget name, you could do it as follows.</p>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:imw-1&quot;</span>.
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>mailbox<span class="w"> </span>workspace<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>vosh9816n2xmpdwm-mb-bf1277df-0da9-4a26-b0fc-3318862b1a5e
 </code></pre></div></p>
-<p>go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer
+<p>Go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:espw:<span class="nv">$mbws</span>
 <a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>./bin/kubectl-kubestellar-syncer_gen<span class="w"> </span>guilder<span class="w"> </span>--syncer-image<span class="w"> </span>quay.io/kubestellar/syncer:v0.2.2<span class="w"> </span>-o<span class="w"> </span>guilder-syncer.yaml
 </code></pre></div>
@@ -2251,7 +2239,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a>to<span class="w"> </span>verify<span class="w"> </span>the<span class="w"> </span>syncer<span class="w"> </span>pod<span class="w"> </span>is<span class="w"> </span>running.
 <a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:espw&quot;</span>.
 </code></pre></div></p>
-<p>deploy the generated yaml manifest to the target cluster
+<p>Deploy the generated yaml manifest to the target cluster.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/config<span class="w"> </span>kubectl<span class="w"> </span>--context<span class="w"> </span>kind-guilder<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>guilder-syncer.yaml
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>namespace/kcp-edge-syncer-guilder-wfeig2lv<span class="w"> </span>created
@@ -2262,7 +2250,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>secret/kcp-edge-syncer-guilder-wfeig2lv<span class="w"> </span>created
 <a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>deployment.apps/kcp-edge-syncer-guilder-wfeig2lv<span class="w"> </span>created
 </code></pre></div></p>
-<p>check that the syncer is running, as follows.
+<p>Check that the syncer is running, as follows.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/config<span class="w"> </span>kubectl<span class="w"> </span>--context<span class="w"> </span>kind-guilder<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>-A
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>NAMESPACE<span class="w">                          </span>NAME<span class="w">                               </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
@@ -2275,7 +2263,7 @@ SyncTarget name, you could do it as follows.</p>
 <h4 id="for-the-target-cluster-of-florin">For the target cluster of <code>florin</code>,</h4>
 <!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-0-deploy-florin.md '&lt;!--kubestellar-syncer-0-deploy-florin-start--&gt;' '&lt;!--kubestellar-syncer-0-deploy-florin-end--&gt;' -->
 
-<p>go to inventry management workspace and find the mailbox workspace name
+<p>Go to inventry management workspace and find the mailbox workspace name.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:imw-1
 <a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="nv">mbws</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>SyncTarget<span class="w"> </span>florin<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.metadata.annotations[&#39;kcp\.io/cluster&#39;]}-mb-{.metadata.uid}&quot;</span><span class="sb">`</span>
 <a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mailbox workspace name = </span><span class="nv">$mbws</span><span class="s2">&quot;</span>
@@ -2283,7 +2271,7 @@ SyncTarget name, you could do it as follows.</p>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:imw-1&quot;</span>.
 <a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>mailbox<span class="w"> </span>workspace<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>vosh9816n2xmpdwm-mb-bb47149d-52d3-4f14-84dd-7b64ac01c97f
 </code></pre></div></p>
-<p>go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer
+<p>Go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:espw:<span class="nv">$mbws</span>
 <a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>./bin/kubectl-kubestellar-syncer_gen<span class="w"> </span>florin<span class="w"> </span>--syncer-image<span class="w"> </span>quay.io/kubestellar/syncer:v0.2.2<span class="w"> </span>-o<span class="w"> </span>florin-syncer.yaml
 </code></pre></div>
@@ -2307,7 +2295,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a>to<span class="w"> </span>verify<span class="w"> </span>the<span class="w"> </span>syncer<span class="w"> </span>pod<span class="w"> </span>is<span class="w"> </span>running.
 <a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:espw&quot;</span>.
 </code></pre></div></p>
-<p>deploy the generated yaml manifest to the target cluster
+<p>Deploy the generated yaml manifest to the target cluster.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/config<span class="w"> </span>kubectl<span class="w"> </span>--context<span class="w"> </span>kind-florin<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>florin-syncer.yaml
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>namespace/kcp-edge-syncer-florin-32uaph9l<span class="w"> </span>created
@@ -2318,7 +2306,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>secret/kcp-edge-syncer-florin-32uaph9l<span class="w"> </span>created
 <a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>deployment.apps/kcp-edge-syncer-florin-32uaph9l<span class="w"> </span>created
 </code></pre></div></p>
-<p>check that the syncer is running, as follows.
+<p>Check that the syncer is running, as follows.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/config<span class="w"> </span>kubectl<span class="w"> </span>--context<span class="w"> </span>kind-florin<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>-A
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>NAMESPACE<span class="w">                          </span>NAME<span class="w">                               </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
@@ -2328,7 +2316,7 @@ SyncTarget name, you could do it as follows.</p>
 </code></pre></div></p>
 <!-- END INCLUDE -->
 
-<h2 id="teardown-the-environment">Teardown the environment</h2>
+<h3 id="teardown-the-environment">Teardown the environment</h3>
 <!-- BEGIN INCLUDE ../../common-subs/teardown-the-environment.md '&lt;!--teardown-the-environment-start--&gt;' '&lt;!--teardown-the-environment-end--&gt;' -->
 
 <p>To remove the example usage, delete the IMW and WMW and kind clusters run the following commands:</p>
@@ -2384,14 +2372,14 @@ SyncTarget name, you could do it as follows.</p>
 <p>The equivalent manual steps are as follows:</p>
 <!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin.md '&lt;!--kubestellar-syncer-1-syncer-gen-plugin-start--&gt;' '&lt;!--kubestellar-syncer-1-syncer-gen-plugin-end--&gt;' -->
 
-<p>generate UUID for Syncer identification
+<p>Generate UUID for Syncer identification.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="nv">syncer_id</span><span class="o">=</span><span class="s2">&quot;syncer-&quot;</span><span class="sb">`</span>uuidgen<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;[:upper:]&#39;</span><span class="w"> </span><span class="s1">&#39;[:lower:]&#39;</span><span class="sb">`</span>
 </code></pre></div></p>
-<p>go to a workspace
+<p>Go to a workspace.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root
 <a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>create<span class="w"> </span>ws1<span class="w"> </span>--enter
 </code></pre></div></p>
-<p>create following apibingin in the workspace (Note that in the case of mailbox workspaces, it's done by mailbox controller at creating the mailbox workspace)
+<p>Create following apibingin in the workspace (Note that in the case of mailbox workspaces, it's done by mailbox controller at creating the mailbox workspace.)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOL | kubectl apply -f -</span>
 <a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="s">apiVersion: apis.kcp.io/v1alpha1</span>
 <a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="s">kind: APIBinding</span>
@@ -2404,7 +2392,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-64-10" name="__codelineno-64-10" href="#__codelineno-64-10"></a><span class="s">      name: edge.kcp.io</span>
 <a id="__codelineno-64-11" name="__codelineno-64-11" href="#__codelineno-64-11"></a><span class="s">EOL</span>
 </code></pre></div></p>
-<p>create a serviceaccount in the workspace
+<p>Create a serviceaccount in the workspace.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOL | kubectl apply -f -</span>
 <a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="s">apiVersion: v1</span>
 <a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="s">kind: ServiceAccount</span>
@@ -2412,7 +2400,7 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="s">  name: $syncer_id</span>
 <a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a><span class="s">EOL</span>
 </code></pre></div></p>
-<p>create clusterrole and clusterrolebinding to bind the serviceaccount to the role
+<p>Create clusterrole and clusterrolebinding to bind the serviceaccount to the role.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOL | kubectl apply -f -</span>
 <a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="s">apiVersion: rbac.authorization.k8s.io/v1</span>
 <a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="s">kind: ClusterRole</span>
@@ -2440,17 +2428,17 @@ SyncTarget name, you could do it as follows.</p>
 <a id="__codelineno-66-25" name="__codelineno-66-25" href="#__codelineno-66-25"></a><span class="s">  namespace: default</span>
 <a id="__codelineno-66-26" name="__codelineno-66-26" href="#__codelineno-66-26"></a><span class="s">EOL</span>
 </code></pre></div></p>
-<p>get the serviceaccount token that will be set in the upstream kubeconfig manifest
+<p>Get the serviceaccount token that will be set in the upstream kubeconfig manifest.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="nv">secret_name</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s2">&quot;:.metadata.name&quot;</span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nv">$syncer_id</span><span class="sb">`</span>
 <a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="nv">token</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="nv">$secret_name</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="sb">`</span>
 </code></pre></div></p>
-<p>get the certificates that will be set in the upstream kubeconfig manifest
+<p>Get the certificates that will be set in the upstream kubeconfig manifest.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nv">cacrt</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--raw<span class="w"> </span><span class="p">|</span><span class="w"> </span>yq<span class="w"> </span><span class="s2">&quot;.clusters[0].cluster.certificate-authority-data&quot;</span><span class="sb">`</span>
 </code></pre></div></p>
-<p>get server_url that will be set in the upstream kubeconfig manifest
+<p>Get server_url that will be set in the upstream kubeconfig manifest.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="nv">server_url</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--raw<span class="w"> </span><span class="p">|</span><span class="w"> </span>yq<span class="w"> </span><span class="s2">&quot;.clusters[0].cluster.server&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|https://\(.*\):\([^/]*\)/.*|https://\1:\2|g&#39;</span><span class="sb">`</span>
 </code></pre></div></p>
-<p>set some other parameters</br>
+<p>Set some other parameters.</br>
 a. downstream_namespace where Syncer Pod runs
 <div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="nv">downstream_namespace</span><span class="o">=</span><span class="s2">&quot;kcp-edge-</span><span class="nv">$syncer_id</span><span class="s2">&quot;</span>
 </code></pre></div>
@@ -2460,10 +2448,10 @@ b. Syncer image
 c. Logical cluster name
 <div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="nv">cluster_name</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>logicalclusters.core.kcp.io<span class="w"> </span>cluster<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span><span class="s2">&quot;:.metadata.annotations.kcp\.io\/cluster&quot;</span><span class="w"> </span>--no-headers<span class="sb">`</span>
 </code></pre></div></p>
-<p>download manifest tamplate
+<p>Download manifest tamplate.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>curl<span class="w"> </span>-LO<span class="w"> </span>https://raw.githubusercontent.com/kcp-dev/edge-mc/main/pkg/syncer/scripts/edge-syncer-bootstrap.template.yaml
 </code></pre></div></p>
-<p>generate manifests to bootstrap KubeStellar Syncer
+<p>Generate manifests to bootstrap KubeStellar Syncer.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="nv">syncer_id</span><span class="o">=</span><span class="nv">$syncer_id</span><span class="w"> </span><span class="nv">cacrt</span><span class="o">=</span><span class="nv">$cacrt</span><span class="w"> </span><span class="nv">token</span><span class="o">=</span><span class="nv">$token</span><span class="w"> </span><span class="nv">server_url</span><span class="o">=</span><span class="nv">$server_url</span><span class="w"> </span><span class="nv">downstream_namespace</span><span class="o">=</span><span class="nv">$downstream_namespace</span><span class="w"> </span><span class="nv">image</span><span class="o">=</span><span class="nv">$image</span><span class="w"> </span><span class="nv">cluster_name</span><span class="o">=</span><span class="nv">$cluster_name</span><span class="w"> </span>envsubst<span class="w"> </span>&lt;<span class="w"> </span>edge-syncer-bootstrap.template.yaml
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>---
@@ -2479,7 +2467,7 @@ c. Logical cluster name
 </code></pre></div></p>
 <!-- END INCLUDE -->
 
-<h4 id="deploy-workload-objects-from-edge-mc-to-edge-cluster">Deploy workload objects from edge-mc to Edge cluster</h4>
+<h3 id="deploy-workload-objects-from-edge-mc-to-edge-cluster">Deploy workload objects from edge-mc to Edge cluster</h3>
 <p>To deploy resources to Edge clusters, create the following in workload management workspace
 - workload objects
   - Some objects are denatured if needed.
@@ -2495,7 +2483,7 @@ c. Logical cluster name
   - The placement translator will put the workload objects and syncer config into the mailbox workspaces.
   - The placement translator will create syncer config based on the EdgePlacement objects and what they match.
   - The mailbox controller will put API Binding into the mailbox workspace.</p>
-<h4 id="edgesyncconfig-will-be-replaced-to-syncerconfig">EdgeSyncConfig (will be replaced to SyncerConfig)</h4>
+<h3 id="edgesyncconfig-will-be-replaced-to-syncerconfig">EdgeSyncConfig (will be replaced to SyncerConfig)</h3>
 <ul>
 <li>The example of EdgeSyncConfig CR is <a href="https://github.com/kcp-dev/edge-mc/blob/main/pkg/syncer/scripts/edge-sync-config-for-kyverno-helm.yaml">here</a>. Its CRD is <a href="https://github.com/kcp-dev/edge-mc/blob/main/config/crds/edge.kcp.io_edgesyncconfigs.yaml">here</a>.</li>
 <li>The CR here is used from edge syncer. </li>
@@ -2515,7 +2503,7 @@ c. Logical cluster name
 <li>KubeStellar Syncer merges them and decides which resources are down/up synced based on the merged information. </li>
 <li>This behavior may be changed to only watching the default CR once Placement Translator is to be the component that generates the CR from EdgePlacement: <a href="https://github.com/kcp-dev/edge-mc/pull/284#pullrequestreview-1375667129">related issue</a></li>
 </ul>
-<h4 id="syncerconfig">SyncerConfig</h4>
+<h3 id="syncerconfig">SyncerConfig</h3>
 <ul>
 <li>The spec is defined in https://github.com/kcp-dev/edge-mc/blob/main/pkg/apis/edge/v1alpha1/syncer-config.go</li>
 <li><code>namespaceScope</code> field is for namespace scoped objects.<ul>
@@ -2550,7 +2538,7 @@ c. Logical cluster name
 <li>Currently KubeStellar Syncer watches all CRs in the workspace</li>
 <li>KubeStellar Syncer merges them and decides which resources are down/up synced based on the merged information. </li>
 </ul>
-<h4 id="downsyncing">Downsyncing</h4>
+<h3 id="downsyncing">Downsyncing</h3>
 <ul>
 <li>Edge syncer does downsyncing, which copy workload objects on mailbox workspace to Edge cluster</li>
 <li>If workload objects are deleted on mailbox workspace, the corresponding objects on the Edge cluster will be also deleted according to SyncerConfig. </li>
@@ -2561,20 +2549,20 @@ c. Logical cluster name
 <li>Renaturing is applied if required (specified in SyncerConfig). (May not scope in PoC2023q1 since no usage)</li>
 <li>Current implementation is using polling to detect changes on mailbox workspace, but will be changed to use Informers. </li>
 </ul>
-<h4 id="renaturing-may-not-scope-in-poc2023q1-since-no-usage">Renaturing (May not scope in PoC2023q1 since no usage)</h4>
+<h3 id="renaturing-may-not-scope-in-poc2023q1-since-no-usage">Renaturing (May not scope in PoC2023q1 since no usage)</h3>
 <ul>
 <li>Edge syncer does renaturing, which converts workload objects to different forms of objects on a Edge cluster. </li>
 <li>The conversion rules (downstream/upstream mapping) is specified in SyncerConfig.</li>
 <li>Some objects need to be denatured. </li>
 <li>CRD needs to be denatured when conflicting with APIBinding.</li>
 </ul>
-<h4 id="return-of-reported-state">Return of reported state</h4>
+<h3 id="return-of-reported-state">Return of reported state</h3>
 <ul>
 <li>Edge syncer return the reported state of downsynced objects at Edge cluster to the status of objects on the mailbox workspace periodically. </li>
 <li>TODO: Failing to returning reported state of some resources (e.g. deployment and service). Need more investigation. </li>
 <li>reported state returning on/off is configurable in SyncerConfig. (default is on)</li>
 </ul>
-<h4 id="resource-upsyncing">Resource Upsyncing</h4>
+<h3 id="resource-upsyncing">Resource Upsyncing</h3>
 <ul>
 <li>Edge syncer does upsyncing resources at Edge cluster to the corresponding mailbox workspace periodically. </li>
 <li>SyncerConfig specifies which objects should be upsynced from Edge cluster.</li>
@@ -2582,16 +2570,16 @@ c. Logical cluster name
 <li>Upsyncing CRD is out of scope for now. This means when upsyncing a CR, corresponding APIBinding (not CRD) is available on the mailbox workspace. This limitation might be revisited later. </li>
 <li>~Upsynced objects can be accessed from APIExport set on the workload management workspace bound to the mailbox workspace (with APIBinding). This access pattern might be changed when other APIs such as summarization are provided in edge-mc.~ =&gt; Upsynced objects are accessed through Mailbox informer.</li>
 </ul>
-<h4 id="feasibility-study">Feasibility study</h4>
+<h3 id="feasibility-study">Feasibility study</h3>
 <p>We will verify if the design described here could cover the following 4 scenarios. 
 - I can register an edge-syncer on a Edge cluster to connect a mailbox workspace specified by name. (edge-syncer registration)
 - I can deploy Kyverno and its policy from mailbox workspace to Edge cluster just by using manifests (generated from Kyverno helm chart) rather than using OLM. (workload deployment by edge-syncer's downsyncing)
 - I can see the policy report generated at Edge cluster via API Export on workload management workspace. (resource upsyncing by edge-syncer) 
 - I can deploy the denatured objects on mailbox workspace to Edge cluster by renaturing them automatically in edge-syncer. (workload deployment by renaturing)</p>
-<h3 id="build-kubestellar-syncer-image">Build KubeStellar Syncer image</h3>
+<h2 id="build-kubestellar-syncer-image">Build KubeStellar Syncer image</h2>
 <p>Prerequisite
 - Install ko (https://ko.build/install/)</p>
-<h4 id="how-to-build-the-image-in-your-local">How to build the image in your local</h4>
+<h3 id="how-to-build-the-image-in-your-local">How to build the image in your local</h3>
 <ol>
 <li><code>make build-edge-syncer-image-local</code>
 e.g.
@@ -2611,7 +2599,7 @@ e.g.
 <p>For example
 <div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>image=`make build-edge-syncer-image-local`
 </code></pre></div></p>
-<h4 id="how-to-build-the-image-with-multiple-architectures-and-push-it-to-docker-registry">How to build the image with multiple architectures and push it to Docker registry</h4>
+<h3 id="how-to-build-the-image-with-multiple-architectures-and-push-it-to-docker-registry">How to build the image with multiple architectures and push it to Docker registry</h3>
 <ol>
 <li><code>make build-edge-syncer-image DOCKER_REPO=ghcr.io/yana1205/edge-mc/syncer IMAGE_TAG=dev-2023-04-24-x ARCHS=linux/amd64,linux/arm64</code></li>
 </ol>
