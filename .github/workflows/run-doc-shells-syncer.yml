@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - "release-*"
+      - "doc-test"
     paths:
       - "docs/content/Coding Milestones/PoC2023q1/edge-syncer.md"
       - "docs/content/Coding Milestones/PoC2023q1/example1-subs/**"
