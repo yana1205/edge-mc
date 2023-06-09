@@ -59,7 +59,18 @@ Once KubeStellar setup is done, KubeStellar Syncer can be deployed on the target
    end="<!--kubestellar-syncer-0-deploy-florin-end-->"
 %}
 
-## The details about the registration of KubeStellar Syncer on an Edge cluster and a workspace
+## Teardown the environment
+
+{%
+   include-markdown "../../common-subs/teardown-the-environment.md"
+   start="<!--teardown-the-environment-start-->"
+   end="<!--teardown-the-environment-end-->"
+%}
+
+---
+## Deep-dive
+
+### The details about the registration of KubeStellar Syncer on an Edge cluster and a workspace
 
 Edge-syncer is deployed on Edge cluster easily by the following steps.
 
@@ -94,97 +105,11 @@ The source code of the command is [{{ config.repo_url }}/blob/{{ config.ks_branc
 
 The equivalent manual steps are as follows:
 
-1. Generate UUID for Syncer identification
-    ```
-    uuidgen | tr '[:upper:]' '[:lower:]' | read syncer_id
-    syncer_id="syncer-$syncer_id"
-    ```
-2. Go to a workspace (It's exactly a mailbox workspace in the case of Edge MC)
-    ```
-    kubectl ws create ws1 --enter
-    ```
-    If you don't use a mailbox workspace created by KubeStellar but your own workspace, please create following custom resources in the workspace.
-      ```
-      kubectl create -f ./config/crds/edge.kcp.io_edgesyncconfigs.yaml,./config/crds/edge.kcp.io_syncerconfigs.yaml
-      ```
-3. Create a serviceaccount in the workspace
-    ```
-    cat << EOL | kubectl apply -f -
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: $syncer_id
-    EOL
-    ```
-4. Create clusterrole and clusterrolebinding to bind the serviceaccount to the role
-    ```
-    cat << EOL | kubectl apply -f -
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRole
-    metadata:
-      name: $syncer_id
-    rules:
-    - apiGroups: ["*"]
-      resources: ["*"]
-      verbs: ["*"]
-    - nonResourceURLs: ["/"]
-      verbs: ["access"]
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: $syncer_id
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: $syncer_id
-    subjects:
-    - apiGroup: ""
-      kind: ServiceAccount
-      name: $syncer_id
-      namespace: default
-    EOL
-    ```
-5. Get the serviceaccount token that will be set in the upstream kubeconfig manifest
-    ```
-    kubectl get secret -o custom-columns=":.metadata.name"| grep $syncer_id | read secret_name
-    kubectl get secret $secret_name -o jsonpath='{.data.token}' | base64 -d | read token
-    ```
-6. Get the certificates that will be set in the upstream kubeconfig manifest
-    ```
-    kubectl config view --minify --raw | yq ".clusters[0].cluster.certificate-authority-data" | read cacrt
-    echo $cacrt
-    ```
-7. Get the server host and port that will be set in the upstream kubeconfig manifest
-    ```
-    kubectl config view --minify --raw | yq ".clusters[0].cluster.server" | sed -e 's|https://\(.*\):\([^/]*\)/.*|\1 \2|g' | read host port
-    echo $host, $port
-    ```
-8. Set some other parameters</br>
-    a. server_url of KCP from host and port
-        ```
-        server_url="https://$host:$port"
-        ```
-    b. downstream_namespace where Syncer Pod runs
-        ```
-        downstream_namespace="kcp-edge-$syncer_id"
-        ```
-    c. Syncer image
-        ```
-        image="quay.io/kubestellar/syncer:v0.2.2"
-        ```
-    d. Logical cluster name
-        ```
-        cluster_name=`kubectl get logicalclusters.core.kcp.io cluster -o custom-columns=":.metadata.annotations.kcp\.io\/cluster" --no-headers`
-        ```
-9. Generate manifests to bootstrap KubeStellar Syncer
-    ```
-    syncer_id=$syncer_id cacrt=$cacrt token=$token server_url=$server_url downstream_namespace=$downstream_namespace image=$image cluster_name=$cluster_name envsubst < ./pkg/syncer/scripts/edge-syncer-bootstrap.template.yaml
-    ```
-    For debug purpose, you can extract kubeconfig.yaml of the upstream
-    ```
-    syncer_id=$syncer_id cacrt=$cacrt token=$token server_url=$server_url downstream_namespace=$downstream_namespace image=$image cluster_name=$cluster_name envsubst < ./pkg/syncer/scripts/edge-syncer-bootstrap.template.yaml | yq e "select(.kind == \"Secret\" and .metadata.name == \"$syncer_id\")" | yq .stringData.kubeconfig 
-    ```
+{%
+   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin.md"
+   start="<!--kubestellar-syncer-1-syncer-gen-plugin-start-->"
+   end="<!--kubestellar-syncer-1-syncer-gen-plugin-end-->"
+%}
 
 #### Deploy workload objects from edge-mc to Edge cluster
 

@@ -1,9 +1,22 @@
 <!--kubestellar-syncer-0-deploy-florin-start-->
-run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer
+go to inventry management workspace and find the mailbox workspace name
 ```shell
+kubectl ws root:imw-1
+mbws=`kubectl get SyncTarget florin -o jsonpath="{.metadata.annotations['kcp\.io/cluster']}-mb-{.metadata.uid}"`
+echo "mailbox workspace name = $mbws"
+```
+``` { .bash .no-copy }
+Current workspace is "root:imw-1".
+mailbox workspace name = vosh9816n2xmpdwm-mb-bb47149d-52d3-4f14-84dd-7b64ac01c97f
+```
+
+go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer
+```shell
+kubectl ws root:espw:$mbws
 ./bin/kubectl-kubestellar-syncer_gen florin --syncer-image quay.io/kubestellar/syncer:v0.2.2 -o florin-syncer.yaml
 ```
 ``` { .bash .no-copy }
+Current workspace is "root:espw:vosh9816n2xmpdwm-mb-bb47149d-52d3-4f14-84dd-7b64ac01c97f".
 Creating service account "kcp-edge-syncer-florin-32uaph9l"
 Creating cluster role "kcp-edge-syncer-florin-32uaph9l" to give service account "kcp-edge-syncer-florin-32uaph9l"
 
