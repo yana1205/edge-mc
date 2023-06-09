@@ -218,6 +218,13 @@
          
     </url>
     <url>
+         <loc>https://docs.kubestellar.io/doc-test/Coding%20Milestones/PoC2023q1/kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin/</loc>
+         <lastmod>2023-06-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kubestellar.io/doc-test/en/Coding%20Milestones/PoC2023q1/kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin/"/>
+         
+    </url>
+    <url>
          <loc>https://docs.kubestellar.io/doc-test/Coding%20Milestones/PoC2023q1/mailbox-controller-subs/mailbox-controller-process-start-without-cd-kubestellar/</loc>
          <lastmod>2023-06-09</lastmod>
          <changefreq>daily</changefreq>
