@@ -1,4 +1,9 @@
-[![Run Doc Shells - placement-translator]({{config.repo_url}}/actions/workflows/run-doc-shells-placement.yml/badge.svg?branch={{config.ks_branch}})]({{config.repo_url}}/actions/workflows/run-doc-shells-placement.yml)&nbsp;&nbsp;&nbsp;
+---
+short_name: edge-syncer
+manifest_name: 'content/Coding Milestones/PoC2023q1/edge-syncer.md'
+pre_req_name: 'content/common-subs/pre-req.md'
+---
+[![Run Doc Shells - edge-syncer]({{config.repo_url}}/actions/workflows/run-doc-shells-syncer.yml/badge.svg?branch={{config.ks_branch}})]({{config.repo_url}}/actions/workflows/run-doc-shells-syncer.yml)&nbsp;&nbsp;&nbsp;
 {%
    include-markdown "../../common-subs/required-packages.md"
    start="<!--required-packages-start-->"
@@ -47,19 +52,19 @@ The KubeStellar Syncer can be exercised after setting up KubeStellar mailbox wor
 Once KubeStellar setup is done, KubeStellar Syncer can be deployed on the target cluster easily by the following steps.
 #### For the target cluster of `guilder`,
 {%
-   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-0-deploy-guilder.md"
-   start="<!--kubestellar-syncer-0-deploy-guilder-start-->"
-   end="<!--kubestellar-syncer-0-deploy-guilder-end-->"
+   include-markdown "edge-syncer-subs/edge-syncer-0-deploy-guilder.md"
+   start="<!--edge-syncer-0-deploy-guilder-start-->"
+   end="<!--edge-syncer-0-deploy-guilder-end-->"
 %}
 
 #### For the target cluster of `florin`,
 {%
-   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-0-deploy-florin.md"
-   start="<!--kubestellar-syncer-0-deploy-florin-start-->"
-   end="<!--kubestellar-syncer-0-deploy-florin-end-->"
+   include-markdown "edge-syncer-subs/edge-syncer-0-deploy-florin.md"
+   start="<!--edge-syncer-0-deploy-florin-start-->"
+   end="<!--edge-syncer-0-deploy-florin-end-->"
 %}
 
-## Teardown the environment
+### Teardown the environment
 
 {%
    include-markdown "../../common-subs/teardown-the-environment.md"
@@ -106,12 +111,12 @@ The source code of the command is [{{ config.repo_url }}/blob/{{ config.ks_branc
 The equivalent manual steps are as follows:
 
 {%
-   include-markdown "kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin.md"
-   start="<!--kubestellar-syncer-1-syncer-gen-plugin-start-->"
-   end="<!--kubestellar-syncer-1-syncer-gen-plugin-end-->"
+   include-markdown "edge-syncer-subs/edge-syncer-1-syncer-gen-plugin.md"
+   start="<!--edge-syncer-1-syncer-gen-plugin-start-->"
+   end="<!--edge-syncer-1-syncer-gen-plugin-end-->"
 %}
 
-#### Deploy workload objects from edge-mc to Edge cluster
+### Deploy workload objects from edge-mc to Edge cluster
 
 To deploy resources to Edge clusters, create the following in workload management workspace
 - workload objects
@@ -132,7 +137,7 @@ After this, Edge-mc will put the following in the mailbox workspace.
   - The placement translator will create syncer config based on the EdgePlacement objects and what they match.
   - The mailbox controller will put API Binding into the mailbox workspace.
 
-#### EdgeSyncConfig (will be replaced to SyncerConfig)
+### EdgeSyncConfig (will be replaced to SyncerConfig)
 - The example of EdgeSyncConfig CR is [here]({{ config.repo_url }}/blob/{{ config.ks_branch }}/pkg/syncer/scripts/edge-sync-config-for-kyverno-helm.yaml). Its CRD is [here]({{ config.repo_url }}/blob/{{ config.ks_branch }}/config/crds/edge.kcp.io_edgesyncconfigs.yaml).
 - The CR here is used from edge syncer. 
 - The CR is placed at mb-ws to define
@@ -151,7 +156,7 @@ After this, Edge-mc will put the following in the mailbox workspace.
   - KubeStellar Syncer merges them and decides which resources are down/up synced based on the merged information. 
   - This behavior may be changed to only watching the default CR once Placement Translator is to be the component that generates the CR from EdgePlacement: [related issue]({{ config.repo_url }}/pull/284#pullrequestreview-1375667129)
 
-#### SyncerConfig
+### SyncerConfig
 - The spec is defined in {{ config.repo_url }}/blob/{{ config.ks_branch }}/pkg/apis/edge/v1alpha1/syncer-config.go
   - `namespaceScope` field is for namespace scoped objects.
     - `namespaces` is field for which namespaces to be downsynced.
@@ -179,7 +184,7 @@ After this, Edge-mc will put the following in the mailbox workspace.
 - Currently KubeStellar Syncer watches all CRs in the workspace
   - KubeStellar Syncer merges them and decides which resources are down/up synced based on the merged information. 
 
-#### Downsyncing
+### Downsyncing
 
 - Edge syncer does downsyncing, which copy workload objects on mailbox workspace to Edge cluster
 - If workload objects are deleted on mailbox workspace, the corresponding objects on the Edge cluster will be also deleted according to SyncerConfig. 
@@ -190,37 +195,37 @@ After this, Edge-mc will put the following in the mailbox workspace.
 - Renaturing is applied if required (specified in SyncerConfig). (May not scope in PoC2023q1 since no usage)
 - Current implementation is using polling to detect changes on mailbox workspace, but will be changed to use Informers. 
 
-#### Renaturing (May not scope in PoC2023q1 since no usage)
+### Renaturing (May not scope in PoC2023q1 since no usage)
 - Edge syncer does renaturing, which converts workload objects to different forms of objects on a Edge cluster. 
 - The conversion rules (downstream/upstream mapping) is specified in SyncerConfig.
 - Some objects need to be denatured. 
   - CRD needs to be denatured when conflicting with APIBinding.
 
-#### Return of reported state
+### Return of reported state
 - Edge syncer return the reported state of downsynced objects at Edge cluster to the status of objects on the mailbox workspace periodically. 
   - TODO: Failing to returning reported state of some resources (e.g. deployment and service). Need more investigation. 
 - reported state returning on/off is configurable in SyncerConfig. (default is on)
 
-#### Resource Upsyncing
+### Resource Upsyncing
 - Edge syncer does upsyncing resources at Edge cluster to the corresponding mailbox workspace periodically. 
 - SyncerConfig specifies which objects should be upsynced from Edge cluster.
   - object selector: group, version, kind, name, namespace (for namespaced objects), label, annotation (, and more such as ownership reference?)
 - Upsyncing CRD is out of scope for now. This means when upsyncing a CR, corresponding APIBinding (not CRD) is available on the mailbox workspace. This limitation might be revisited later. 
 - ~Upsynced objects can be accessed from APIExport set on the workload management workspace bound to the mailbox workspace (with APIBinding). This access pattern might be changed when other APIs such as summarization are provided in edge-mc.~ => Upsynced objects are accessed through Mailbox informer.
 
-#### Feasibility study
+### Feasibility study
 We will verify if the design described here could cover the following 4 scenarios. 
 - I can register an edge-syncer on a Edge cluster to connect a mailbox workspace specified by name. (edge-syncer registration)
 - I can deploy Kyverno and its policy from mailbox workspace to Edge cluster just by using manifests (generated from Kyverno helm chart) rather than using OLM. (workload deployment by edge-syncer's downsyncing)
 - I can see the policy report generated at Edge cluster via API Export on workload management workspace. (resource upsyncing by edge-syncer) 
 - I can deploy the denatured objects on mailbox workspace to Edge cluster by renaturing them automatically in edge-syncer. (workload deployment by renaturing)
 
-### Build KubeStellar Syncer image
+## Build KubeStellar Syncer image
 
 Prerequisite
 - Install ko (https://ko.build/install/)
 
-#### How to build the image in your local
+### How to build the image in your local
 1. `make build-edge-syncer-image-local`
 e.g.
 ```
@@ -243,7 +248,7 @@ For example
 image=`make build-edge-syncer-image-local`
 ```
 
-#### How to build the image with multiple architectures and push it to Docker registry
+### How to build the image with multiple architectures and push it to Docker registry
 1. `make build-edge-syncer-image DOCKER_REPO=ghcr.io/yana1205/edge-mc/syncer IMAGE_TAG=dev-2023-04-24-x ARCHS=linux/amd64,linux/arm64`
 
 For example

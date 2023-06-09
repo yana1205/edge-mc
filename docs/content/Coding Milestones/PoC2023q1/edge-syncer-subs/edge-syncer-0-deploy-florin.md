@@ -1,5 +1,5 @@
-<!--kubestellar-syncer-0-deploy-florin-start-->
-go to inventry management workspace and find the mailbox workspace name
+<!--edge-syncer-0-deploy-florin-start-->
+Go to inventry management workspace and find the mailbox workspace name.
 ```shell
 kubectl ws root:imw-1
 mbws=`kubectl get SyncTarget florin -o jsonpath="{.metadata.annotations['kcp\.io/cluster']}-mb-{.metadata.uid}"`
@@ -10,7 +10,7 @@ Current workspace is "root:imw-1".
 mailbox workspace name = vosh9816n2xmpdwm-mb-bb47149d-52d3-4f14-84dd-7b64ac01c97f
 ```
 
-go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer
+Go to the mailbox workspace and run the following command to obtain yaml manifests to bootstrap KubeStellar Syncer.
 ```shell
 kubectl ws root:espw:$mbws
 ./bin/kubectl-kubestellar-syncer_gen florin --syncer-image quay.io/kubestellar/syncer:v0.2.2 -o florin-syncer.yaml
@@ -37,7 +37,7 @@ to verify the syncer pod is running.
 Current workspace is "root:espw".
 ```
 
-deploy the generated yaml manifest to the target cluster
+Deploy the generated yaml manifest to the target cluster.
 ```shell
 KUBECONFIG=~/.kube/config kubectl --context kind-florin apply -f florin-syncer.yaml
 ```
@@ -51,7 +51,7 @@ secret/kcp-edge-syncer-florin-32uaph9l created
 deployment.apps/kcp-edge-syncer-florin-32uaph9l created
 ```
     
-check that the syncer is running, as follows.
+Check that the syncer is running, as follows.
 ```shell
 KUBECONFIG=~/.kube/config kubectl --context kind-florin get deploy -A
 ```
@@ -62,4 +62,4 @@ kube-system                        coredns                            2/2     2 
 local-path-storage                 local-path-provisioner             1/1     1            1           41m
 ```
 
-<!--kubestellar-syncer-0-deploy-florin-end-->
+<!--edge-syncer-0-deploy-florin-end-->
