@@ -2205,7 +2205,7 @@ SyncTarget name, you could do it as follows.</p>
 <h3 id="register-kubestellar-syncer-on-the-target-clusters">Register KubeStellar Syncer on the target clusters</h3>
 <p>Once KubeStellar setup is done, KubeStellar Syncer can be deployed on the target cluster easily by the following steps.</p>
 <h4 id="for-the-target-cluster-of-guilder">For the target cluster of <code>guilder</code>,</h4>
-<!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-0-deploy-guilder.md '&lt;!--kubestellar-syncer-0-deploy-guilder-start--&gt;' '&lt;!--kubestellar-syncer-0-deploy-guilder-end--&gt;' -->
+<!-- BEGIN INCLUDE edge-syncer-subs/edge-syncer-0-deploy-guilder.md '&lt;!--edge-syncer-0-deploy-guilder-start--&gt;' '&lt;!--edge-syncer-0-deploy-guilder-end--&gt;' -->
 
 <p>Go to inventry management workspace and find the mailbox workspace name.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:imw-1
@@ -2261,7 +2261,7 @@ SyncTarget name, you could do it as follows.</p>
 <!-- END INCLUDE -->
 
 <h4 id="for-the-target-cluster-of-florin">For the target cluster of <code>florin</code>,</h4>
-<!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-0-deploy-florin.md '&lt;!--kubestellar-syncer-0-deploy-florin-start--&gt;' '&lt;!--kubestellar-syncer-0-deploy-florin-end--&gt;' -->
+<!-- BEGIN INCLUDE edge-syncer-subs/edge-syncer-0-deploy-florin.md '&lt;!--edge-syncer-0-deploy-florin-start--&gt;' '&lt;!--edge-syncer-0-deploy-florin-end--&gt;' -->
 
 <p>Go to inventry management workspace and find the mailbox workspace name.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:imw-1
@@ -2370,7 +2370,7 @@ SyncTarget name, you could do it as follows.</p>
 <p>Note: In addition to that, the command creates EdgeSyncConfig CRD if not exist, and creates a default EdgeSyncConfig resource with the name specified in the command (;<code>kubectl kubestellar syncer-gen &lt;name&gt;</code>). The default EdgeSyncConfig is no longer needed since Syncer now consumes all EdgeSyncConfigs in the workspace. Furthermore, creation of EdgeSyncConfig CRD will also no longer be needed since we will switch to use SyncerConfig rather than EdgeSyncConfig in near future.</p>
 <p>The source code of the command is <a href="https://github.com/kcp-dev/edge-mc/blob/main/pkg/cliplugins/kcp-edge/syncer-gen/edgesync.go">https://github.com/kcp-dev/edge-mc/blob/main/pkg/cliplugins/kcp-edge/syncer-gen/edgesync.go</a>.</p>
 <p>The equivalent manual steps are as follows:</p>
-<!-- BEGIN INCLUDE kubestellar-syncer-subs/kubestellar-syncer-1-syncer-gen-plugin.md '&lt;!--kubestellar-syncer-1-syncer-gen-plugin-start--&gt;' '&lt;!--kubestellar-syncer-1-syncer-gen-plugin-end--&gt;' -->
+<!-- BEGIN INCLUDE edge-syncer-subs/edge-syncer-1-syncer-gen-plugin.md '&lt;!--edge-syncer-1-syncer-gen-plugin-start--&gt;' '&lt;!--edge-syncer-1-syncer-gen-plugin-end--&gt;' -->
 
 <p>Generate UUID for Syncer identification.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="nv">syncer_id</span><span class="o">=</span><span class="s2">&quot;syncer-&quot;</span><span class="sb">`</span>uuidgen<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;[:upper:]&#39;</span><span class="w"> </span><span class="s1">&#39;[:lower:]&#39;</span><span class="sb">`</span>
