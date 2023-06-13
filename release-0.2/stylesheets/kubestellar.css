@@ -1,5 +1,38 @@
+/* @font-face {
+    font-family: "SpaceMono";
+    src:url(https://fonts.cdnfonts.com/css/space-mono) ;
+} */
+
+
 :root {
     --md-primary-fg-color: #06c;
+}
+
+.md-typeset h1 {
+    font-size: 22px;
+    font-weight: 700;
+    /* color: #06c; */
+}
+.md-typeset h2 {
+    font-size: 20px;
+    font-weight: 700;
+    /* color: #06c; */
+}
+
+.md-typeset h3 {
+    font-size: 18px;
+    font-weight: 700;
+    /* color: #06c; */
+}
+
+.md-typeset h4 {
+    font-size: 16px;
+    /* font-weight: 200; */
+    /* color: #06c; */
+}
+
+.hide-me {
+    display: none;
 }
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
@@ -131,3 +164,37 @@ dl.crd-meta {
     }
 
 }
+
+/* .iframe_container {
+    position: relative;
+}
+.iframe_container .spinner {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
+.iframe_container iframe {
+    background: transparent;
+    z-index: 1;
+} */
+
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .spinner::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    border-top-color: #333;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
