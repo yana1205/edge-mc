@@ -274,31 +274,10 @@
          
     </url>
     <url>
-         <loc>https://docs.kubestellar.io/main/Community/partners/fluxcd/</loc>
-         <lastmod>2023-06-15</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kubestellar.io/main/en/Community/partners/fluxcd/"/>
-         
-    </url>
-    <url>
          <loc>https://docs.kubestellar.io/main/Community/partners/kyverno/</loc>
          <lastmod>2023-06-15</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://docs.kubestellar.io/main/en/Community/partners/kyverno/"/>
-         
-    </url>
-    <url>
-         <loc>https://docs.kubestellar.io/main/Community/partners/mvi/</loc>
-         <lastmod>2023-06-15</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kubestellar.io/main/en/Community/partners/mvi/"/>
-         
-    </url>
-    <url>
-         <loc>https://docs.kubestellar.io/main/Community/partners/openziti/</loc>
-         <lastmod>2023-06-15</lastmod>
-         <changefreq>daily</changefreq>
-         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kubestellar.io/main/en/Community/partners/openziti/"/>
          
     </url>
     <url>
