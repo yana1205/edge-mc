@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../edge-syncer/" class="md-nav__link">
+      <a href="../../kubestellar-syncer/" class="md-nav__link">
         KubeStellar-Syncer
       </a>
     </li>
@@ -824,14 +824,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
-          Processes
+          KubeStellar Processes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_1_5">
           <span class="md-nav__icon md-icon"></span>
-          Processes
+          KubeStellar Processes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1428,14 +1428,14 @@
   <h1>Example1 stage 3</h1>
 
 <!--example1-stage-3-start-->
-<h2 id="stage-3">Stage 3</h2>
+<h2 id="stage-3">Stage 3<a class="headerlink" href="#stage-3" title="Permanent link">#</a></h2>
 <p><img alt="Placement translation" src="../../Edge-PoC-2023q1-Scenario-1-stage-3.svg" title="Stage 3 summary" /></p>
 <p>In Stage 3, in response to the EdgePlacement and SinglePlacementSlice
 objects, the placement translator will copy the workload prescriptions
 into the mailbox workspaces and create <code>SyncerConfig</code> objects there.</p>
 <p>Eventually there will be convenient automation running the placement
 translator.  In the meantime, you can run it manually: switch to the
-ESPW and use the edge-mc command that runs the placement translator.</p>
+ESPW and use the KubeStellar command that runs the placement translator.</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:espw
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:espw&quot;</span>.
@@ -1449,7 +1449,7 @@ ESPW and use the edge-mc command that runs the placement translator.</p>
 <p>After it stops logging stuff, wait another minute and then you can ^C
 it or use another shell to continue exploring.</p>
 <p>The florin cluster gets only the common workload.  Examine florin's
-<code>SyncerConfig</code> as follows.</p>
+<code>SyncerConfig</code> as follows.  Utilize florin's name (which you stored in Stage 1) here.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span><span class="nv">$FLORIN_WS</span>
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:espw:1t82bk54r6gjnzsp-mb-1a045336-8178-4026-8a56-5cd5609c0ec1&quot;</span><span class="w"> </span><span class="o">(</span><span class="nb">type</span><span class="w"> </span>root:universal<span class="o">)</span>.
@@ -1537,7 +1537,8 @@ it or use another shell to continue exploring.</p>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>commonstuff<span class="w">   </span>commond<span class="w">   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>6m44s
 </code></pre></div></p>
 <p>The guilder cluster gets both the common and special workloads.
-Examine guilder's <code>SyncerConfig</code> object and workloads as follows.</p>
+Examine guilder's <code>SyncerConfig</code> object and workloads as follows, using
+the name that you stored in Stage 1.</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>ws<span class="w"> </span>root:espw
 </code></pre></div>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Current<span class="w"> </span>workspace<span class="w"> </span>is<span class="w"> </span><span class="s2">&quot;root:espw&quot;</span>.

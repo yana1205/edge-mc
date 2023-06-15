@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../edge-syncer/" class="md-nav__link">
+      <a href="../kubestellar-syncer/" class="md-nav__link">
         KubeStellar-Syncer
       </a>
     </li>
@@ -836,14 +836,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
-          Processes
+          KubeStellar Processes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_1_5">
           <span class="md-nav__icon md-icon"></span>
-          Processes
+          KubeStellar Processes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -911,19 +911,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#try-it" class="md-nav__link">
-    Try It
+  <a href="#try-out-the-mailbox-controller" class="md-nav__link">
+    Try out the mailbox controller
   </a>
   
-    <nav class="md-nav" aria-label="Try It">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#steps-to-try-the-mailbox-controller" class="md-nav__link">
-    Steps to try the mailbox controller
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps to try the mailbox controller">
+    <nav class="md-nav" aria-label="Try out the mailbox controller">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -937,11 +929,6 @@
   <a href="#create-the-edge-service-provider-workspace-espw" class="md-nav__link">
     Create the Edge Service Provider Workspace (ESPW)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1505,19 +1492,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#try-it" class="md-nav__link">
-    Try It
+  <a href="#try-out-the-mailbox-controller" class="md-nav__link">
+    Try out the mailbox controller
   </a>
   
-    <nav class="md-nav" aria-label="Try It">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#steps-to-try-the-mailbox-controller" class="md-nav__link">
-    Steps to try the mailbox controller
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps to try the mailbox controller">
+    <nav class="md-nav" aria-label="Try out the mailbox controller">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1531,11 +1510,6 @@
   <a href="#create-the-edge-service-provider-workspace-espw" class="md-nav__link">
     Create the Edge Service Provider Workspace (ESPW)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1584,12 +1558,12 @@
 
   <h1>KubeStellar Mailbox Controller</h1>
 
-<p><a href="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-mailbox.yml"><img alt="Run Doc Shells - mailbox-controller" src="https://github.com/kcp-dev/edge-mc/actions/workflows/run-doc-shells-mailbox.yml/badge.svg?branch=main" /></a>&nbsp;&nbsp;&nbsp;</p>
+<p><a href="https://github.com/kcp-dev/edge-mc/actions/workflows/docs-ecutable-mailbox.yml"><img alt="docs-ecutable - mailbox-controller" src="https://github.com/kcp-dev/edge-mc/actions/workflows/docs-ecutable-mailbox.yml/badge.svg?branch=main" /></a>&nbsp;&nbsp;&nbsp;</p>
 <!-- BEGIN INCLUDE ../../common-subs/required-packages.md '&lt;!--required-packages-start--&gt;' '&lt;!--required-packages-end--&gt;' -->
 
 <div class="admonition tip">
 <p class="admonition-title">Required Packages:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mac</label><label for="__tabbed_1_2">Ubuntu</label><label for="__tabbed_1_3">Centos8</label><label for="__tabbed_1_4">WSL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mac</label><label for="__tabbed_1_2">Ubuntu</label><label for="__tabbed_1_3">RHEL</label><label for="__tabbed_1_4">WSL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><div class="highlight"><span class="filename">jq - https://stedolan.github.io/jq/download/</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew install jq
@@ -1657,21 +1631,21 @@
 <p class="admonition-title">This document is 'docs-ecutable' - you can 'run' this document, just like we do in our testing, on your local environment</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git clone -n -b main https://github.com/kcp-dev/edge-mc --depth 1 KubeStellar-mailbox-controller
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>cd KubeStellar-mailbox-controller
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>git restore --staged Makefile Makefile.venv go.mod docs
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>git checkout Makefile Makefile.venv go.mod docs
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>make MANIFEST=&quot;&#39;content/common-subs/pre-req.md&#39;,&#39;content/Coding Milestones/PoC2023q1/mailbox-controller.md&#39;&quot; docs-ecutable
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>git restore --staged Makefile Makefile.venv go.mod docs/mkdocs.yml docs/content docs/scripts/docs-ecutable.sh
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>git checkout Makefile Makefile.venv go.mod docs/mkdocs.yml docs/content docs/scripts/docs-ecutable.sh
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>make MANIFEST=&quot;&#39;docs/content/common-subs/pre-req.md&#39;,&#39;docs/content/Coding Milestones/PoC2023q1/mailbox-controller.md&#39;&quot; docs-ecutable
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a># done? remove everything
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>make MANIFEST=&quot;content/common-subs/remove-all.md&quot; docs-ecutable
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>make MANIFEST=&quot;docs/content/common-subs/remove-all.md&quot; docs-ecutable
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>cd ../
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>rm -rf KubeStellar-mailbox-controller
 </code></pre></div>
 </div>
 <!-- END INCLUDE -->
-<h2 id="linking-synctarget-with-mailbox-workspace">Linking SyncTarget with Mailbox Workspace</h2>
+<h2 id="linking-synctarget-with-mailbox-workspace">Linking SyncTarget with Mailbox Workspace<a class="headerlink" href="#linking-synctarget-with-mailbox-workspace" title="Permanent link">#</a></h2>
 <p>For a given SyncTarget T, the mailbox controller currently chooses the
 name of the corresponding workspace to be the concatenation of the
-following.</p>
+following:</p>
 <ul>
 <li>the ID of the logical cluster containing T</li>
 <li>the string "-mb-"</li>
@@ -1681,7 +1655,7 @@ following.</p>
 <code>edge.kcp.io/sync-target-name</code> and whose value is the name of the
 workspace object (as seen in its parent workspace, the edge service
 provider workspace).</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>The mailbox controller needs three Kubernetes client configurations.
 One --- concerned with reading inventory --- is to access the
 APIExport view of the <code>workload.kcp.io</code> API group, to read the
@@ -1717,30 +1691,29 @@ consume the <code>Workspace</code> objects from there.</p>
 <a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">      </span>--workload-kubeconfig<span class="w"> </span>string<span class="w">       </span>Path<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>kubeconfig<span class="w"> </span>file<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">for</span><span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>edge<span class="w"> </span>service<span class="w"> </span>provider<span class="w"> </span>workspace
 <a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">      </span>--workload-user<span class="w"> </span>string<span class="w">             </span>The<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>kubeconfig<span class="w"> </span>user<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="k">for</span><span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>edge<span class="w"> </span>service<span class="w"> </span>provider<span class="w"> </span>workspace
 </code></pre></div>
-<h2 id="try-it">Try It</h2>
-<h3 id="steps-to-try-the-mailbox-controller">Steps to try the mailbox controller</h3>
-<h4 id="pull-the-kcp-and-kubestellar-source-code-build-the-kubectl-ws-binary-and-start-kcp">Pull the kcp and KubeStellar source code, build the kubectl-ws binary, and start kcp</h4>
-<p>open a terminal window(1) and clone the latest KubeStellar source:</p>
-<!-- BEGIN INCLUDE kubestellar-scheduler-subs/kubestellar-scheduler-0-pull-kcp-and-kuberstellar-source-and-start-kcp.md '&lt;!--kubestellar-scheduler-0-pull-kcp-and-kuberstellar-source-and-start-kcp-start--&gt;' '&lt;!--kubestellar-scheduler-0-pull-kcp-and-kuberstellar-source-and-start-kcp-end--&gt;' -->
+<h2 id="try-out-the-mailbox-controller">Try out the mailbox controller<a class="headerlink" href="#try-out-the-mailbox-controller" title="Permanent link">#</a></h2>
+<h3 id="pull-the-kcp-and-kubestellar-source-code-build-the-kubectl-ws-binary-and-start-kcp">Pull the kcp and KubeStellar source code, build the kubectl-ws binary, and start kcp<a class="headerlink" href="#pull-the-kcp-and-kubestellar-source-code-build-the-kubectl-ws-binary-and-start-kcp" title="Permanent link">#</a></h3>
+<p>Open a terminal window(1) and clone the latest KubeStellar source:</p>
+<!-- BEGIN INCLUDE kubestellar-scheduler-subs/kubestellar-scheduler-0-pull-kcp-and-kubestellar-source-and-start-kcp.md '&lt;!--kubestellar-scheduler-0-pull-kcp-and-kubestellar-source-and-start-kcp-start--&gt;' '&lt;!--kubestellar-scheduler-0-pull-kcp-and-kubestellar-source-and-start-kcp-end--&gt;' -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/kcp-dev/edge-mc<span class="w"> </span>KubeStellar
 </code></pre></div>
-<p>clone the v0.11.0 branch kcp source:
+<p>Clone the v0.11.0 branch kcp source:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v0.11.0<span class="w"> </span>https://github.com/kcp-dev/kcp<span class="w"> </span>kcp
 </code></pre></div>
-build the kubectl-ws binary and include it in <code>$PATH</code>
+Build the kubectl-ws binary and include it in <code>$PATH</code>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">cd</span><span class="w"> </span>kcp
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>make<span class="w"> </span>build
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/bin:<span class="nv">$PATH</span>
 </code></pre></div></p>
-<p>run kcp (kcp will spit out tons of information and stay running in this terminal window)
+<p>Run kcp (kcp will spit out tons of information and stay running in this terminal window)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>kcp<span class="w"> </span>start<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sleep<span class="w"> </span><span class="m">30</span>
 </code></pre></div></p>
 <!-- END INCLUDE -->
 
-<h4 id="create-the-edge-service-provider-workspace-espw">Create the Edge Service Provider Workspace (ESPW)</h4>
-<p>open another terminal window(2) and point <code>$KUBECONFIG</code> to the admin kubeconfig for the kcp server and include the location of kubectl-ws in <code>$PATH</code>.</p>
+<h3 id="create-the-edge-service-provider-workspace-espw">Create the Edge Service Provider Workspace (ESPW)<a class="headerlink" href="#create-the-edge-service-provider-workspace-espw" title="Permanent link">#</a></h3>
+<p>Open another terminal window(2) and point <code>$KUBECONFIG</code> to the admin kubeconfig for the kcp server and include the location of kubectl-ws in <code>$PATH</code>.</p>
 <!-- BEGIN INCLUDE kubestellar-scheduler-subs/kubestellar-scheduler-1-export-kubeconfig-and-path-for-kcp.md '&lt;!--kubestellar-scheduler-1-export-kubeconfig-and-path-for-kcp-start--&gt;' '&lt;!--kubestellar-scheduler-1-export-kubeconfig-and-path-for-kcp-end--&gt;' -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/.kcp/admin.kubeconfig
@@ -1835,7 +1808,7 @@ controller wait for it to be gone and then re-create it.</p>
 and watch the mailbox controller react as follows.</p>
 <div class="no-copy highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>I0305<span class="w"> </span><span class="m">18</span>:08:44.380421<span class="w">   </span><span class="m">85556</span><span class="w"> </span>main.go:352<span class="o">]</span><span class="w"> </span><span class="s2">&quot;Deleted unwanted workspace&quot;</span><span class="w"> </span><span class="nv">worker</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">mbwsName</span><span class="o">=</span><span class="s2">&quot;niqdko2g2pwoadfb-mb-f99e773f-3db2-439e-8054-827c4ac55368&quot;</span>
 </code></pre></div>
-<h2 id="teardown-the-environment">Teardown the environment</h2>
+<h2 id="teardown-the-environment">Teardown the environment<a class="headerlink" href="#teardown-the-environment" title="Permanent link">#</a></h2>
 <!-- BEGIN INCLUDE ../../common-subs/teardown-the-environment.md '&lt;!--teardown-the-environment-start--&gt;' '&lt;!--teardown-the-environment-end--&gt;' -->
 
 <p>To remove the example usage, delete the IMW and WMW and kind clusters run the following commands:</p>
