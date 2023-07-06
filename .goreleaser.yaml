@@ -15,7 +15,7 @@ builds:
 kos:
 - build: kubestellar-syncer
   main: ./cmd/syncer
-  repository: quay.io/kubestellar/syncer
+  repository: quay.io/yanagawa_takumi1205/kubestellar-syncer
   tags:
   - '{{.Version}}'
   bare: true
