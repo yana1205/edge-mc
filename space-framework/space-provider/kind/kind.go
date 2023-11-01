@@ -47,7 +47,8 @@ func New(pConfig string) (KindClusterProvider, error) {
 func (k KindClusterProvider) Create(name string, opts clusterprovider.Options) error {
 	logger := klog.Background()
 	logger.V(2).Info("Creating Kind cluster", "name", name)
-	err := k.kindProvider.Create(name)
+	kindOps := kind.CreateWithNodeImage("kindest/node:v1.26.3")
+	err := k.kindProvider.Create(name, kindOps)
 
 	if err != nil {
 		// TODO:  Need to differentiate between "already exists" and an error

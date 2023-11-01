@@ -37,6 +37,7 @@ import (
 	spacev1alpha1 "github.com/kubestellar/kubestellar/space-framework/pkg/apis/space/v1alpha1"
 	mgtclientset "github.com/kubestellar/kubestellar/space-framework/pkg/client/clientset/versioned"
 	ksinformers "github.com/kubestellar/kubestellar/space-framework/pkg/client/informers/externalversions"
+	kubeclient "k8s.io/client-go/kubernetes"
 )
 
 const defaultProviderNs = "spaceprovider-default"
@@ -118,10 +119,16 @@ func NewMultiSpace(ctx context.Context, managerConfig *rest.Config) (Kubestellar
 		return client, err
 	}
 
+	kubeClientset, err := kubeclient.NewForConfig(managerConfig)
+	if err != nil {
+		return client, err
+	}
+
 	client = &multiSpaceClient{
 		ctx:              ctx,
 		configs:          make(map[string]*rest.Config),
 		managerClientset: managerClientset,
+		kubeClientset:    kubeClientset,
 		lock:             sync.Mutex{},
 	}
 

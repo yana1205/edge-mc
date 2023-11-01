@@ -316,8 +316,6 @@ func (p *provider) createSpaceSecrets(space *spacev1alpha1apis.Space, spInfo spa
 						return err
 					}
 				}
-			} else {
-				return err
 			}
 
 			space.Status.InClusterSecretRef = &v1.SecretReference{
@@ -341,8 +339,6 @@ func (p *provider) createSpaceSecrets(space *spacev1alpha1apis.Space, spInfo spa
 						return err
 					}
 				}
-			} else {
-				return err
 			}
 			space.Status.ExternalSecretRef = &v1.SecretReference{
 				Name:      secretName,

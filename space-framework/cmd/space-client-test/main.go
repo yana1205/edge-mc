@@ -50,7 +50,7 @@ func main() {
 		panic(err)
 	}
 
-	spaceName := "ks-lc4"
+	spaceName := "space1"
 
 	// Demonstrate a Watch() on a space
 	// Using the mcclient to get access to a space directly (clientset, informer, etc..)
